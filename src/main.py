@@ -14,10 +14,11 @@ import yaml
 
 def main(args):
 
-    num_instances = args.num_instances
+    ## 参数
+    num_instances = args.num_instances 
     start_seed = args.start_seed
-    
 
+    ## 数组
     #value of path length/leakage with non-linear decision rule without increaing flow/leakage enforced
     #for leakage we store the -log(1 - path_leakage) for each instance
     path_val_nonlin_wo_array = np.zeros(num_instances)-1
@@ -43,7 +44,7 @@ def main(args):
     #for leakage we store the -log(1 - path_leakage) for each instance
     opt_path_val_array = np.zeros(num_instances)-1
     
-    
+    ## 参数
     min_leakage = args.min_leakage #whether we are testing for convergence to minimum leakage path or shortest path
     uniform_init = not args.random_init #initial pheromone level to be initialized uniformly or randomly
     non_lin = args.non_lin
@@ -60,9 +61,11 @@ def main(args):
     helper.log_output(f"We log the minimum of normalized forward and backward  flows across all edges on the optimum path. Here, by normalized forward (backward) flow at an edge (u,v), we refer to the fraction of forward (backward) flow entering it from the total flow present at vertex u (v). For the linear decision rule, normalized forward and backward flows are same as normalized forward and backward pheromone levels.\n", log_path, args.print_to_console)
     
     for i in range(num_instances):
+        
         helper.log_output(f"Instance number {i+start_seed}", log_path, args.print_to_console)
 #         print("Instance number  %3d" % (i+start_seed))
         rseed = i+start_seed
+        ## C++ generator.seed(seed);
         random.seed(rseed)
         np.random.seed(rseed)
         
@@ -81,7 +84,8 @@ def main(args):
         elif graph_type == 'gnp':
             n = args.num_nodes #number of nodes
             p = args.p_graph
-            adj = gg.g_np(n,p, not min_leakage, args.with_loop) #Directed adjacency matrix
+            ## ?????????????????不需要
+            # adj = gg.g_np(n,p, not min_leakage, args.with_loop) #Directed adjacency matrix
             has_path = False
             #Keep sampling new graphs until it has at least one path from source to destination
             while not has_path:

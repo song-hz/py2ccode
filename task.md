@@ -49,13 +49,13 @@ grid_wo_loop_wo_leakage_0
 ## 2.分工
 
 ### 代码改写
-- decision_rules.py 45行
-- gen_graph.py 54行
-- helper.py 147行
-- plot.py 66行
-- schema.py 78行
-- sim.py 66行
-- main.py 265行
+- decision_rules.py 45行 
+- gen_graph.py 54行 x 
+- helper.py 147行 
+- plot.py 66行 x
+- schema.py 78行 x
+- sim.py 66行 
+- main.py 265行 先不改
 
 可以挑自己熟悉的改，改之前通知一下对方，改好的代码都放ccode文件夹吧
 
